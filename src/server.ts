@@ -1,9 +1,11 @@
 import express from 'express'
+import routes from './routes'
+import graphqlServer from './graphql'
 
 const app = express()
+app.use(routes)
 
-app.get('/', (request, response) => {
-  return response.json({ message: 'Pokedex API' })
-})
+const server = graphqlServer
+server.applyMiddleware({ app })
 
-app.listen(5000)
+app.listen(5000, () => console.log('SERVER RUNNING AT 5000'))
