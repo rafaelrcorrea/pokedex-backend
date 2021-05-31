@@ -27,4 +27,5 @@ type Pokemon {
 
 type Query {
   getPokemon(id: ID!): Pokemon
+  getPokemons(limit: Int, offset: Int): [Pokemon]
 }

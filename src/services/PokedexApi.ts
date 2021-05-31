@@ -10,6 +10,11 @@ class PokedexApi {
   getPokemon (id: string) : Promise<Pokemon> {
     return this.api.getPokemonByName(id)
   }
+
+  async getPokemons ({ limit, offset } : {limit: number, offset: number}) : Promise<Pokemon[]> {
+    const pokeList = await this.api.getPokemonsList({ limit, offset })
+    return this.api.resource(pokeList?.results.map(item => item.url))
+  }
 }
 
 export default new PokedexApi()

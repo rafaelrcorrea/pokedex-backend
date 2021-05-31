@@ -36,3 +36,7 @@ export interface Pokemon {
 export const getPokemon = async (_: any, { id } : { id: string}): Promise<Pokemon> => {
   return await PokedexApi.getPokemon(id)
 }
+
+export const getPokemons = async (_:any, { limit, offset }: { limit: number, offset: number}): Promise<Pokemon[]> => {
+  return await PokedexApi.getPokemons({ limit, offset })
+}
