@@ -8,5 +8,7 @@ const typeDefs = fs.readFileSync(path.join(__dirname, 'schema.graphql'))
 
 export default new ApolloServer({
   typeDefs: gql(typeDefs.toString()),
-  resolvers
+  resolvers,
+  introspection: true,
+  playground: true
 })
