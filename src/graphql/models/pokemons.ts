@@ -33,10 +33,19 @@ export interface Pokemon {
   sprites: PokemonSprites
 }
 
+export interface PokemonColor {
+  name: string,
+  color: string
+}
+
 export const getPokemon = async (_: any, { id } : { id: string}): Promise<Pokemon> => {
   return await PokedexApi.getPokemon(id)
 }
 
 export const getPokemons = async (_:any, { limit, offset }: { limit: number, offset: number}): Promise<Pokemon[]> => {
   return await PokedexApi.getPokemons({ limit, offset })
+}
+
+export const getPokemonsColors = async (): Promise<PokemonColor[]> => {
+  return await PokedexApi.getPokemonsColors()
 }

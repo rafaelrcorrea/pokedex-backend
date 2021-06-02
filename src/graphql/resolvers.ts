@@ -1,9 +1,10 @@
-import { getPokemon, getPokemons } from './models/pokemons'
+import { getPokemon, getPokemons, getPokemonsColors } from './models/pokemons'
 
 const resolvers = {
   Query: {
     getPokemon,
-    getPokemons
+    getPokemons,
+    getPokemonsColors
   }
 }
 

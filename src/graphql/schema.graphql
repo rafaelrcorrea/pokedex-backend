@@ -25,7 +25,13 @@ type Pokemon {
   sprites: PokemonSprites
 }
 
+type PokemonColor {
+  name: String
+  color: String
+}
+
 type Query {
   getPokemon(id: ID!): Pokemon
   getPokemons(limit: Int, offset: Int): [Pokemon]
+  getPokemonsColors: [PokemonColor]
 }
