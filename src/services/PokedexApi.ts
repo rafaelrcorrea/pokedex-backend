@@ -7,8 +7,10 @@ class PokedexApi {
     this.api = new Pokedex()
   }
 
-  getPokemon (id: string) : Promise<Pokemon> {
-    return this.api.getPokemonByName(id)
+  async getPokemon (id: string) : Promise<Pokemon> {
+    const pokemon = await this.api.getPokemonByName(id)
+    const pokemonSpecies = await this.api.resource(pokemon.species.url)
+    return { ...pokemon, species: { color: pokemonSpecies.color?.name, description: pokemonSpecies.flavor_text_entries?.find(flavor => flavor.language.name === 'en' && flavor.version.name === 'ruby')?.flavor_text } }
   }
 
   async getPokemons ({ limit, offset } : {limit: number, offset: number}) : Promise<Pokemon[]> {
@@ -26,7 +28,6 @@ class PokedexApi {
         result.push({ name, color: color.name })
       })
     })
-    console.log('res', result)
     return result
   }
 }

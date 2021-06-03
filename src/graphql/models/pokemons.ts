@@ -1,8 +1,20 @@
 import PokedexApi from '../../services/PokedexApi'
 
 export interface PokemonType {
-  name: string,
-  url: string
+  slot: number,
+  type: {
+    name: string,
+    url: string
+  }
+}
+
+export interface PokemonStats {
+  'base_stat': number,
+  effort: number,
+  stat: {
+    name: string,
+    url: string
+  }
 }
 
 export interface PokemonSpriteOtherType {
@@ -29,8 +41,11 @@ export interface Pokemon {
   id: string,
   name: string,
   height: number,
+  weight: number,
+  'base_experience': number
   types: [PokemonType],
-  sprites: PokemonSprites
+  sprites: PokemonSprites,
+  stats: [PokemonStats]
 }
 
 export interface PokemonColor {

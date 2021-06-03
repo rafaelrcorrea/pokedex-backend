@@ -18,11 +18,43 @@ type PokemonSprites {
   other: PokemonSpriteOther
 }
 
+type PokemonTypeType {
+  name: String
+  url: String
+}
+
+type PokemonTypes {
+  slot: Int,
+  type: PokemonTypeType
+}
+
+type PokemonStat {
+  name: String
+  url: String
+}
+
+type PokemonStats {
+  base_stat: Int
+  effort: Int
+  stat: PokemonStat
+}
+
+type PokemonSpecies {
+  color: String
+  description: String
+  
+}
+
 type Pokemon {
   id: ID!
   name: String
   height: Int
+  weight: Int
+  base_experience: Int
+  species: PokemonSpecies
+  types: [PokemonTypes]
   sprites: PokemonSprites
+  stats: [PokemonStats]
 }
 
 type PokemonColor {
