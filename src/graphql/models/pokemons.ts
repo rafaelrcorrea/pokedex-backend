@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PokedexApi from '../../services/PokedexApi'
 
 export interface PokemonType {
