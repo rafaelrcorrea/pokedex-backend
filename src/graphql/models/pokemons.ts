@@ -17,6 +17,11 @@ export interface PokemonStats {
   }
 }
 
+export interface PokemonSpecies {
+  color: string,
+  description: string
+}
+
 export interface PokemonSpriteOtherType {
   'front_default': string
 }
@@ -45,7 +50,8 @@ export interface Pokemon {
   'base_experience': number
   types: [PokemonType],
   sprites: PokemonSprites,
-  stats: [PokemonStats]
+  stats: [PokemonStats],
+  species: PokemonSpecies
 }
 
 export interface PokemonColor {
